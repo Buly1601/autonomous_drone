@@ -23,8 +23,9 @@ class Camera:
 
         # call functions 
         self.morphology()
-        self.get_center_img()
         self.draw_contours()
+        self.get_square_center()
+        self.get_center_img()
         if dummy:
             self.show_results()
         else:
@@ -44,7 +45,14 @@ class Camera:
         """
         Locates and draws the center of the square in the frame
         """
-        
+        # loop over the contours
+        for c in self.contours:
+            # compute the center of the contour
+            M = cv2.moments(c)
+            cX = int(M["m10"] / M["m00"])
+            cY = int(M["m01"] / M["m00"])
+            # draw the contour and center of the shape on the image
+            cv2.circle(self.final, (cX, cY), 2, (0, 255, 0), -1)
 
 
     def get_center_img(self, show=False):
@@ -61,7 +69,7 @@ class Camera:
             print(self.center)
         
         # draw center
-        self.img = cv2.circle(self.img, self.center, 2, (255,0,0), 2)
+        self.img = cv2.circle(self.final, self.center, 2, (255,0,0), 2)
 
 
     def morphology(self):
@@ -87,13 +95,13 @@ class Camera:
         Draw countours based on the cleaned morphological image.
         """
         # get external contours
-        contours = cv2.findContours(self.clean, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        print(contours)
-        contours = contours[0] if len(contours) == 2 else contours[1]
+        self.contours = cv2.findContours(self.clean, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        print(self.contours)
+        self.contours = self.contours[0] if len(self.contours) == 2 else self.contours[1]
 
         self.final_unclean = self.img.copy()
         self.final = self.img.copy()
-        for c in contours:
+        for c in self.contours:
             cv2.drawContours(self.final_unclean, [c], 0,( 0,0,0), 2)
             # get rotated rectangle from contour
             rot_rect = cv2.minAreaRect(c)
@@ -101,6 +109,7 @@ class Camera:
             box = np.int0(box)
             # draw rotated rectangle on copy of img
             cv2.drawContours(self.final, [box], 0, (0,0,0), 2)
+
 
 
     def show_results(self):
