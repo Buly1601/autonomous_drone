@@ -132,5 +132,7 @@ class Camera:
         cv2.destroyAllWindows()
 
 
+
+
 if __name__ =="__main__":
     camera = Camera()
