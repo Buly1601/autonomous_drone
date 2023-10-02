@@ -5,20 +5,23 @@ def Operate():
             print("Elija una opción:")
             print("1. Autonomous")
             print("2. Manual Control")
-            print("3. Salir")
-
-            opcion = input("Ingrese su elección: ")
-
+            print("3. Exit")
+            
+            opcion = input("Operation: ")
+            
             if opcion == '1':
-                print("Ejecutando trycamera.py...")
-                subprocess.run(["python", "trycamera.py"])
+                try:
+                    subprocess.run(["python", "C:\\Users\\Miguel\\OneDrive\\Escritorio\\autonomous_drone-main\\scripts\\trycamera.py"])
+                    print("launching trycamera.py...")
+                except FileNotFoundError:
+                    print("El archivo trycamera.py no se encuentra en la ubicación especificada.")
             elif opcion == '2':
-                print("Seleccionó: Manual Control")
+                print("Manual Control")
             elif opcion == '3':
-                print("Saliendo del programa...")
+                print("Exit program...")
                 break
             else:
-                print("Opción no válida. Por favor, ingrese 1, 2 o 3.")
+                print("Invalid")
 
 if __name__ == "__main__":
     Operate()
