@@ -17,6 +17,12 @@ def Operate():
                     print("El archivo trycamera.py no se encuentra en la ubicación especificada.")
             elif opcion == '2':
                 print("Manual Control")
+                try:
+                    subprocess.run(["python", "C:\\Users\\Miguel\\OneDrive\\Escritorio\\autonomous_drone-main\\scripts\\teleop.py"])
+                    print("launching teleop.py...")
+                except FileNotFoundError:
+                    print("El archivo trycamera.py no se encuentra en la ubicación especificada.")
+
             elif opcion == '3':
                 print("Exit program...")
                 break

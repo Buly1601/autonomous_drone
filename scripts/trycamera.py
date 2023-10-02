@@ -38,6 +38,7 @@ class Camera:
                     self.show_frame()
             else:
                 print("No se pudo capturar la imagen de la cámara.")
+                
     def capture_frame(self):
         # Captura un cuadro de la cámara
         ret, frame = self.capture.read()
@@ -175,7 +176,9 @@ class Camera:
             self.capture.release()
             cv2.destroyAllWindows()
             sys.exit()
-
+    def exit(self):
+        num = 0
+        return
 
 if __name__ =="__main__":
     camera = Camera()
