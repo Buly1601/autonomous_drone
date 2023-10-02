@@ -20,8 +20,8 @@ class Camera:
                 self.hsv = cv2.cvtColor(self.img, cv2.COLOR_BGR2HSV)
 
                 # Define el rango para la segmentación del color naranja (fb5607)
-                self.lower = (10, 200, 100)  # Valores aproximados
-                self.upper = (20, 255, 255)  # Valores aproximados
+                self.lower = (100, 0, 0)
+                self.upper = (25, 255, 255)
 
                 # Crea la imagen umbral (threshold)
                 self.threshold = cv2.inRange(self.hsv, self.lower, self.upper)
@@ -36,6 +36,7 @@ class Camera:
                     self.show_results()
                 else:
                     self.show_frame()
+
             else:
                 print("No se pudo capturar la imagen de la cámara.")
                 
@@ -171,6 +172,7 @@ class Camera:
         Muestra el cuadro actual de la cámara en una ventana.
         """
         cv2.imshow("Camera Frame", self.img)
+        cv2.imshow("BW",self.clean )
         key = cv2.waitKey(1)
         if key == ord("q"):
             self.capture.release()
