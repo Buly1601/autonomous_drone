@@ -6,7 +6,7 @@ class Camera:
 
     def __init__(self, dummy=False):
         # read image
-        self.img = cv2.imread("./images/squares.jpg")
+        self.img = cv2.imread("./images/squares_2.png")
         #self.img = cv2.VideoCapture(0)
         #self.ret, self.frame = self.img.read()
         # TODO read from video real-time
@@ -49,10 +49,10 @@ class Camera:
         for c in self.contours:
             # compute the center of the contour
             M = cv2.moments(c)
-            cX = int(M["m10"] / M["m00"])
-            cY = int(M["m01"] / M["m00"])
+            self.cX = int(M["m10"] / M["m00"])
+            self.cY = int(M["m01"] / M["m00"])
             # draw the contour and center of the shape on the image
-            cv2.circle(self.final, (cX, cY), 2, (0, 255, 0), -1)
+            cv2.circle(self.final, (self.cX, self.cY), 2, (0, 255, 0), -1)
 
 
     def get_center_img(self, show=False):
@@ -69,7 +69,9 @@ class Camera:
             print(self.center)
         
         # draw center
-        self.img = cv2.circle(self.final, self.center, 2, (255,0,0), 2)
+        self.img = cv2.circle(self.final, self.center, 2, (255, 0, 0), 2)
+        # draw error circle
+        self.img = cv2.circle(self.final, self.center, 20, (255, 0, 0), 1)
 
 
     def morphology(self):
@@ -96,7 +98,6 @@ class Camera:
         """
         # get external contours
         self.contours = cv2.findContours(self.clean, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        print(self.contours)
         self.contours = self.contours[0] if len(self.contours) == 2 else self.contours[1]
 
         self.final_unclean = self.img.copy()
