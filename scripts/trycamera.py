@@ -2,6 +2,7 @@
 import cv2
 import numpy as np
 #from cv_bridge import CvBridge
+import sys
 
 class Camera:
     def __init__(self, dummy=False):
@@ -20,7 +21,7 @@ class Camera:
                 self.hsv = cv2.cvtColor(self.img, cv2.COLOR_BGR2HSV)
 
                 # Define el rango para la segmentación del color naranja (fb5607)
-                self.lower = (100, 0, 0)
+                self.lower = (12, 200, 191)
                 self.upper = (25, 255, 255)
 
                 # Crea la imagen umbral (threshold)
@@ -35,10 +36,16 @@ class Camera:
                 if dummy:
                     self.show_results()
                 else:
-                    self.show_frame()
+                   # self.show_frame()
+                   print("foto") 
 
             else:
                 print("No se pudo capturar la imagen de la cámara.")
+                
+            key = getKey()
+
+            if key == '5':
+                print('Exit the sub')
                 
     def capture_frame(self):
         # Captura un cuadro de la cámara
@@ -181,6 +188,13 @@ class Camera:
     def exit(self):
         num = 0
         return
+        
+    def getKey():
+        tty.setraw(sys.stdin.fileno())
+        select.select([sys.stdin], [], [], 0)
+        key = sys.stdin.read(1)
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+        return key
 
 if __name__ =="__main__":
     camera = Camera()

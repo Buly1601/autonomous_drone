@@ -27,6 +27,8 @@ class Camera:
         self.draw_contours()
         self.get_square_center()
         self.get_center_img()
+
+        
         if dummy:
             self.show_results()
         else:
@@ -137,7 +139,7 @@ class Camera:
         """
         Shows the final result segmented.
         """
-        cv2.imshow("final", self.final)
+        #cv2.imshow("final", self.final)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
