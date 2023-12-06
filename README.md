@@ -13,6 +13,9 @@ For the first try, the color was determined at the last minute as an HSV color v
 After getting only the pixels that fall in the range of the HSV values, then opening and closing is done to the image to reduce noise. First opening was done with a (9,9) eliptical kernel, then closing using another (15,15) eliptical kernel. Refer [here](https://docs.opencv.org/3.4/d9/d61/tutorial_py_morphological_ops.html) to understand more about morfology.
 After getting the contours drawn, then the image locates the center of a square (if any) and draws a contour around it.
 
+## Drone Control
+
+
 
 
 
