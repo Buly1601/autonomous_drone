@@ -15,7 +15,10 @@ After getting the contours drawn, then the image locates the center of a square 
 
 ## Drone Control
 
-
+## Usage
+1. Follow [this](https://github.com/antonellabarisic/parrot_arsdk/tree/noetic_dev) repo to setup bebop's ROS Noetic's drivers and dependencies.
+2. Clone [this](https://github.com/Buly1601/autonomous_drone) repo into your local machine (Has to be Ubuntu 20.04.6 with ROS Noetic).
+3. Install requirements using `pip install -r requirements.txt`
 
 
 
