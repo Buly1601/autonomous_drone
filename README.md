@@ -1,6 +1,6 @@
 # Autonomous Drone Competition
 
-### In collaboration with José Miguel Zúñiga Juárez, Pablo Emilio Peredo Vega and Aldo Oziel
+### In collaboration with José Miguel Zúñiga Juárez, Pablo Emilio Peredo Vega and Aldo Oziel Peña Gamboa
 
 ## Dynamic
 This competition's dynamic consists on an algorithm that enables the drone to autonomously pass through the squares using OpenCV, ROS, and Python. The winner team is the team that is able to cross through the most squares.
