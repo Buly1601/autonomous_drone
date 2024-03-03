@@ -28,3 +28,12 @@ For controlling the drone, 'teleop_twist_keyboard.py' can be used which has been
 used : https://bebop-autonomy.readthedocs.io/en/latest/
 https://answers.ros.org/question/297036/bebop2-keyboard-control/
 
+
+### Contributors
+
+| Name                          | Github                               |
+|-------------------------------|--------------------------------------|
+| Charbel Breydy Torres         | https://github.com/Buly1601          |
+| Pablo Emilio Peredo Vega      | https://github.com/PEREGOOOD         |
+| Aldo Oziel Peña Gamboa        | https://github.com/AldoPenaGa        |
+| José Miguel Zúñiga Juárez     | https://github.com/JoseMiguelZG      |
