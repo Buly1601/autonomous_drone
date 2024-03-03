@@ -14,6 +14,7 @@ After getting only the pixels that fall in the range of the HSV values, then ope
 After getting the contours drawn, then the image locates the center of a square (if any) and draws a contour around it.
 
 ## Drone Control
+For controlling the drone, 'teleop_twist_keyboard.py' can be used which has been modified from https://github.com/yakovkor/keyboard-control-for-bebop-2-drone, this version allows the user to control the drone with WASD and also it adds functions in order to customize orders so the drone can follow an specific path.
 
 ## Usage
 1. Follow [this](https://github.com/antonellabarisic/parrot_arsdk/tree/noetic_dev) repo to setup bebop's ROS Noetic's drivers and dependencies.
