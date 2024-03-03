@@ -1,6 +1,6 @@
 # Autonomous Drone Competition
 
-### In collaboration with José Miguel Zúñiga Juárez, Pablo Emilio Peredo Vega and Aldo Oziel
+### In collaboration with José Miguel Zúñiga Juárez, Pablo Emilio Peredo Vega and Aldo Oziel Peña Gamboa
 
 ## Dynamic
 This competition's dynamic consists on an algorithm that enables the drone to autonomously pass through the squares using OpenCV, ROS, and Python. The winner team is the team that is able to cross through the most squares.
@@ -14,6 +14,7 @@ After getting only the pixels that fall in the range of the HSV values, then ope
 After getting the contours drawn, then the image locates the center of a square (if any) and draws a contour around it.
 
 ## Drone Control
+For controlling the drone, 'teleop_twist_keyboard.py' can be used which has been modified from https://github.com/yakovkor/keyboard-control-for-bebop-2-drone, this version allows the user to control the drone with WASD and also it adds functions in order to customize orders so the drone can follow an specific path.
 
 ## Usage
 1. Follow [this](https://github.com/antonellabarisic/parrot_arsdk/tree/noetic_dev) repo to setup bebop's ROS Noetic's drivers and dependencies.
@@ -27,3 +28,12 @@ After getting the contours drawn, then the image locates the center of a square 
 used : https://bebop-autonomy.readthedocs.io/en/latest/
 https://answers.ros.org/question/297036/bebop2-keyboard-control/
 
+
+### Contributors
+
+| Name                          | Github                               |
+|-------------------------------|--------------------------------------|
+| Charbel Breydy Torres         | https://github.com/Buly1601          |
+| Pablo Emilio Peredo Vega      | https://github.com/PEREGOOOD         |
+| Aldo Oziel Peña Gamboa        | https://github.com/AldoPenaGa        |
+| José Miguel Zúñiga Juárez     | https://github.com/JoseMiguelZG      |
